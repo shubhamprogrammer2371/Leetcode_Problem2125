@@ -1,0 +1,14 @@
+int numberOfBeams(char ** bank, int bankSize){
+    int length = strlen(bank[0]) , beam_count_Prev = 0 , beam_count , res = 0;
+    for( int i = 0 ; i < bankSize ; i++)
+    {
+        beam_count = 0;
+        for( int j = 0 ; j < length ; j++)
+            if(bank[i][j] == '1')
+                beam_count++;
+        res += beam_count * beam_count_Prev;
+        if(beam_count)
+            beam_count_Prev = beam_count ;
+    }
+    return res;
+}
